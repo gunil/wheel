@@ -44,12 +44,24 @@
         <script>
             // Create new wheel object specifying the parameters at creation time.
             var theWheel = new Winwheel({
-                'numSegments'  : 4,     // Specify number of segments.
+                'numSegments'  : 16,     // Specify number of segments.
                 'outerRadius'  : 212,   // Set outer radius so wheel fits inside the background.
-                'textFontSize' : 28,    // Set font size as desired.
+                'textFontSize' : 20,    // Set font size as desired.
                 'segments'     :        // Define segments including colour and text.
                 [
                    {'fillStyle' : '#eae56f', 'text' : '김건일'},
+                   {'fillStyle' : '#89f26e', 'text' : '김성섭'},
+                   {'fillStyle' : '#7de6ef', 'text' : '김동혁'},
+                   {'fillStyle' : '#e7706f', 'text' : '임상문'},
+                       {'fillStyle' : '#eae56f', 'text' : '김건일'},
+                   {'fillStyle' : '#89f26e', 'text' : '김성섭'},
+                   {'fillStyle' : '#7de6ef', 'text' : '김동혁'},
+                   {'fillStyle' : '#e7706f', 'text' : '임상문'},
+                        {'fillStyle' : '#eae56f', 'text' : '김건일'},
+                   {'fillStyle' : '#89f26e', 'text' : '김성섭'},
+                   {'fillStyle' : '#7de6ef', 'text' : '김동혁'},
+                   {'fillStyle' : '#e7706f', 'text' : '임상문'},
+                        {'fillStyle' : '#eae56f', 'text' : '김건일'},
                    {'fillStyle' : '#89f26e', 'text' : '김성섭'},
                    {'fillStyle' : '#7de6ef', 'text' : '김동혁'},
                    {'fillStyle' : '#e7706f', 'text' : '임상문'}
@@ -58,7 +70,7 @@
                 {
                     'type'     : 'spinToStop',
                     'duration' : 5,     // Duration in seconds.
-                    'spins'    : 4,     // Number of complete spins.
+                    'spins'    : 16,     // Number of complete spins.
                     'callbackFinished' : alertPrize
                 }
             });
