@@ -16,17 +16,20 @@
                             <br />
                             <table class="power" cellpadding="10" cellspacing="0">
                                 <tr>
-                                    <td width="78" align="center" id="pw3">High</td>
+                                    <th>Power</th>
                                 </tr>
                                 <tr>
-                                    <td align="center" id="pw2">Med</td>
+                                    <td width="78" align="center" id="pw3" onClick="powerSelected(3)">High</td>
                                 </tr>
                                 <tr>
-                                    <td align="center" id="pw1">Low</td>
+                                    <td align="center" id="pw2" onClick="powerSelected(2)">Med</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" id="pw1" onClick="powerSelected(1)">Low</td>
                                 </tr>
                             </table>
                             <br />
-                            <img id="spin_button" src="spin_off.png" alt="Spin" onClick="powerSelected(3);startSpin();" />
+                            <img id="spin_button" src="spin_off.png" alt="Spin" onClick="startSpin();" />
                             <br /><br />
                         </div>
                     </td>
