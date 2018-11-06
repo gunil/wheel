@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Winning Wheel</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
         <link rel="stylesheet" href="main.css" type="text/css" />
         <script type="text/javascript" src="Winwheel.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
@@ -15,22 +16,18 @@
                             <br />
                             <table class="power" cellpadding="10" cellspacing="0">
                                 <tr>
-                                    <th align="center">Power</th>
+                                    <td width="78" align="center" id="pw3">High</td>
                                 </tr>
                                 <tr>
-                                    <td width="78" align="center" id="pw3" onClick="powerSelected(3);">High</td>
+                                    <td align="center" id="pw2">Med</td>
                                 </tr>
                                 <tr>
-                                    <td align="center" id="pw2" onClick="powerSelected(2);">Med</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" id="pw1" onClick="powerSelected(1);">Low</td>
+                                    <td align="center" id="pw1">Low</td>
                                 </tr>
                             </table>
                             <br />
-                            <img id="spin_button" src="spin_off.png" alt="Spin" onClick="startSpin();" />
+                            <img id="spin_button" src="spin_off.png" alt="Spin" onClick="powerSelected(3);startSpin();" />
                             <br /><br />
-                            &nbsp;&nbsp;<a href="#" onClick="resetWheel(); return false;">Play Again</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reset)
                         </div>
                     </td>
                     <td width="438" height="582" class="the_wheel" align="center" valign="center">
@@ -177,6 +174,8 @@
             {
                 // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
                 alert("쏴주세요!! " + indicatedSegment.text);
+                resetWheel();
+                return false;
             }
         </script>
     </body>
