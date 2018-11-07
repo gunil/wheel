@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<title>Lottery Game</title>
+	<link rel="stylesheet" type="text/css" href="css/Lottery.css">
+</head>
+<body>
+	<div class="main valign">
+		<div class="valign_bx">
+			<img src="./imgs/logo_cu.gif" alt="CU">
+			<p class="text">노블레스 오블리주를 실천할 기회를 드립니다.</p>
+			<div class="btnbx clearfix">
+				<button type="button" class="btn btn_random"><span>부질없는 당첨자 섞기</span></button>
+				<button type="button" class="btn btn_start"><span>시작하기</span></button>
+			</div>
+		</div>
+	</div>
+	<div class="result">
+		<div class="Lottery"></div>
+		<div class="btnbx clearfix">
+			<button type="button" class="btn btn_active"><span>귀찮아서 빨리 확인</span></button>
+			<button type="button" class="btn btn_reset"><span>다시하기</span></button>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="js/wScratchPad.min.js"></script>
+	<script type="text/javascript">
+		
+		var winnerAry = [
+						'./imgs/team1.png',
+						'./imgs/team2.png',
+						'./imgs/team3.png',
+						'./imgs/team4.png',
+						'./imgs/team1.png',
+						'./imgs/team2.png',
+						'./imgs/team3.png',
+						'./imgs/team4.png'
+		];
+		var winner = winnerAry[Math.floor(Math.random() * 7)];
+
+		$(".result").hide();
+		console.log(winner);
+
+		$(".Lottery").wScratchPad({
+			fg: './imgs/dummy.jpg',
+			bg: winner,
+			size: 10
+		});
+
+		$(".btn_active").click(function(){
+			$('.Lottery').wScratchPad('clear');
+		});
+
+		$(".btn_start").click(function(){
+			$(".main").fadeOut();
+			$(".result").fadeIn();
+		});
+		
+		$(".btn_reset").click(function(){
+			location.reload();
+		});
+
+		$(".btn_random").click(function(){
+			$('.Lottery').wScratchPad('reset');
+			winner = winnerAry[Math.floor(Math.random() * 7)];
+			$(".Lottery img").attr("src", winner);
+		});
+
+	</script>
+</body>
+</html>
