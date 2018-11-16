@@ -15,7 +15,7 @@ var randRoll = 0;
         // get a plain array of symbol elements
         var symbols = $(".wheel").not(".hold").get();
         $('body').removeClass('end');
-        randRoll = Math.floor(Math.random() * 50 + 80);
+        randRoll = Math.floor(Math.random() * 70 + 50);
 
         if (symbols.length === 0) {
             alert("All wheels are held; there's nothing to spin");
