@@ -57,7 +57,7 @@ $(function(){
     //console.log(mixMember);
 
     //판때기 후보군 색출
-    $(".btn_shuffle").click(function() {
+    $(".btn_shake").click(function() {
         $(".card_list li").removeClass("is_looser");    //class reset
         var count = $(".card_list li").length;
         for(i = 0; i < count; i++) {
