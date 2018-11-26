@@ -68,15 +68,15 @@ $(function(){
             var bg = '';
             switch(mixMember) {
                 case '김건일':
-                    bg = '/whell/pickme/imgs/kgi.png';    break;
+                    bg = '/wheel/pickme/imgs/kgi.png';    break;
                 case '김성섭':
-                    bg = '/whell/pickme/imgs/kss.jpg';    break;
+                    bg = '/wheel/pickme/imgs/kss.jpg';    break;
                 case '김동혁':
-                    bg = '/whell/pickme/imgs/kdh.jpg';    break;
+                    bg = '/wheel/pickme/imgs/kdh.jpg';    break;
                 case '임상문':
-                    bg = '/whell/pickme/imgs/lsm.jpg';    break;
+                    bg = '/wheel/pickme/imgs/lsm.jpg';    break;
                 default:
-                    bg = '/whell/pickme/imgs/default_user.png';
+                    bg = '/wheel/pickme/imgs/default_user.png';
             }
 
             //이미지 css경로 만들기
