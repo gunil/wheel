@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <title>복불복</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+    <div class="hit_and_miss">
+        <div class="intro">
+            <h1 class="title">복불복</h1>
+            <strong class="sub_title">나만 아니면 돼~~~~~</strong>
+            <div class="user-settings">
+                <label for="userNumber" class="text">Player</label><input type="number" id="userNumber" min="3" max="5">
+            </div>
+            <button type="button" class="btn_start"><span>시작</span></button>
+        </div>
 
+        <div class="game"></div>
+
+        <div class="outro">
+            <div class="pyro">
+                <div class="before"></div>
+                <div class="after"></div>
+            </div>
+            <p class="text">ㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊ</p>
+            <button type="button" class="btn_reset"><span>처음으로</span></button>
+        </div>
+    </div>
+
+    <script>
+        $(function(){
+            var intro = $(".intro"),
+                game  = $(".game"),
+                outro = $(".outro");
+
+            $(".btn_start").click(function(){
+                var playerNum = $("#userNumber").val();
+                var randomNum = Math.floor(Math.random() * (playerNum * 5));
+
+                console.log(randomNum);
+
+                if(playerNum == 0){
+                    alert("Player 수를 지정하세요.");
+                }else {
+                    intro.hide();
+                    game.css("display","flex");
+
+                    for(i = 0; i < playerNum; i++){
+                        game.append("<div class='panel'><button type='button' class='btn_teeth'><span>선택</span></button><button type='button' class='btn_teeth'><span>선택</span></button><button type='button' class='btn_teeth'><span>선택</span></button><button type='button' class='btn_teeth'><span>선택</span></button><button type='button' class='btn_teeth'><span>선택</span></button></div>");
+                    }
+
+                    $(".btn_teeth").eq(randomNum).addClass('omg');
+                }
+            });
+
+            $(document).on("click",".btn_teeth", function(){
+                $(this).addClass("on");
+                if($(this).hasClass("omg")){
+                    game.hide();
+                    $(".outro").css("display","flex");
+                };
+            });
+
+            $(".btn_reset").click(function(){
+                outro.hide();
+                intro.css("display","flex");
+                game.empty();
+            });
+        });
+    </script>
+</body>
+</html>
