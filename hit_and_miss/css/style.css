@@ -28,7 +28,8 @@ footer, header, hgroup, menu, nav, section {
 }
 html, body {
     height: 100%;
-    min-height: 100%;   
+    min-height: 100%;
+    -webkit-text-size-adjust:none;
 }
 body,button,input,select,table,textarea {
     line-height: 1;
@@ -49,6 +50,18 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+/* input, textarea, button, select {
+    -webkit-appearance:none;
+    appearance: none;
+} */
+.blind {
+    position: absolute !important;
+    clip: rect(0 0 0 0) !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important
 }
 
 :root {
@@ -120,7 +133,19 @@ table {
     margin: 60px 0;
     text-align: center;
 }
-
+.hit_and_miss .intro .user-settings select {
+    width: 50px;
+    height: 50px;
+    border: 0 none;
+    border-bottom: 4px solid #fff;
+    background-color: transparent;
+    font-size: 32px;
+    vertical-align: middle;
+    color: #fff;
+}
+.hit_and_miss .intro .user-settings select option {
+    color: #000;
+}
 .hit_and_miss .intro .user-settings input[type="number"] {
     width: 50px;
     height: 50px;
@@ -144,9 +169,25 @@ table {
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 200px 10px 15px;
+    padding: 180px 10px 15px;
     background-color: #1D3040;
 
+}
+.hit_and_miss .game .title-bx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 150px;
+    background-color: #f5f5f5;
+}
+.hit_and_miss .game .title-bx .title {
+    flex: 1;
+    text-align: center;
+    font-size: 40px;
+    color: #333;
 }
 
 .hit_and_miss .game .panel {
@@ -171,7 +212,7 @@ table {
     background-color: #607584;
 }
 
-.hit_and_miss .game .btn_teeth {
+.hit_and_miss .game .btn_sticker {
     position: relative;
     height: 100%;
     padding: 0;
@@ -185,7 +226,7 @@ table {
     z-index: 1;
 }
 
-.hit_and_miss .game .btn_teeth .test {
+.hit_and_miss .game .btn_sticker .test {
     text-indent: 0;
     background-color: yellowgreen;
     background-image: linear-gradient(135deg, #fff 50%, transparent 50%), linear-gradient(225deg, #fff 50%, transparent 50%), linear-gradient(45deg, #fff 50%, transparent 50%), linear-gradient(-45deg, #fff 50%, transparent 50%);
@@ -194,11 +235,11 @@ table {
     background-repeat: repeat-x;
 }
 
-.hit_and_miss .game .btn_teeth.on {
+.hit_and_miss .game .btn_sticker.on {
     height: 0;
 }
 
-.hit_and_miss .game .btn_teeth:before {
+.hit_and_miss .game .btn_sticker:before {
     content: "";
     position: absolute;
     bottom: -12px;
@@ -208,7 +249,7 @@ table {
     border-color: #d3b100 transparent;
 }
 
-.hit_and_miss .game .btn_teeth:after {
+.hit_and_miss .game .btn_sticker:after {
     content: "";
     position: absolute;
     bottom: -12px;
@@ -219,7 +260,7 @@ table {
     border-color: #ffd707;
 }
 
-.hit_and_miss .game .btn_teeth>span {
+.hit_and_miss .game .btn_sticker>span {
     display: block;
     text-indent: -2000px;
 }
