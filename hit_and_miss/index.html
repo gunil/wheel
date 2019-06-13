@@ -14,12 +14,23 @@
             <h1 class="title">복불복</h1>
             <strong class="sub_title">나만 아니면 돼~~~~~</strong>
             <div class="user-settings">
-                <label for="userNumber" class="text">Player</label><input type="number" id="userNumber" min="3" max="5">
+                <label for="userNumber" class="text">Player</label>
+                <select id="userNumber">
+                    <option value="2">2</option>
+                    <option value="3" selected="selected">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
             </div>
             <button type="button" class="btn_start"><span>시작</span></button>
         </div>
 
-        <div class="game"></div>
+        <div class="game">
+            <div class="title-bx">
+                <p class="title">될놈될<br>안될안</p>
+            </div>
+        </div>
 
         <div class="outro">
             <div class="pyro">
@@ -50,14 +61,14 @@
                     game.css("display","flex");
 
                     for(i = 0; i < playerNum; i++){
-                        game.append("<div class='panel'><button type='button' class='btn_teeth'><span>선택</span></button><button type='button' class='btn_teeth'><span>선택</span></button><button type='button' class='btn_teeth'><span>선택</span></button><button type='button' class='btn_teeth'><span>선택</span></button><button type='button' class='btn_teeth'><span>선택</span></button></div>");
+                        game.append("<div class='panel'><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button></div>");
                     }
 
-                    $(".btn_teeth").eq(randomNum).addClass('omg');
+                    $(".btn_sticker").eq(randomNum).addClass('omg');
                 }
             });
 
-            $(document).on("click",".btn_teeth", function(){
+            $(document).on("click",".btn_sticker", function(){
                 $(this).addClass("on");
                 if($(this).hasClass("omg")){
                     game.hide();
