@@ -44,22 +44,26 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script>
-        $(function(){
+
+        $.noConflict();
+        var _$ = jQuery;
+
+        _$(function(){
 
             function resultVibrate(){
                 navigator.vibrate(1000);
             }
 
-            var intro = $(".intro"),
-                game  = $(".game"),
-                outro = $(".outro");
+            var intro = _$(".intro"),
+                game  = _$(".game"),
+                outro = _$(".outro");
 
-            $(".btn_start").click(function(){
-                var playerNum = $("#userNumber").val(),
+            _$(".btn_start").click(function(){
+                var playerNum = _$("#userNumber").val(),
                     randomNum = Math.floor(Math.random() * (playerNum * 5));
 
                 //console.log(randomNum);
-
+                
                 if(playerNum == 0){
                     alert("Player 수를 지정하세요.");
                 }else {
@@ -67,26 +71,29 @@
                     game.css("display","flex");
 
                     for(i = 0; i < playerNum; i++){
-                        $(".panel-bx").append("<div class='panel'><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button></div>");
+                        _$(".panel-bx").append("<div class='panel'></div>");
+                        for(k = 0; k <= 6; k++){
+                            _$(".panel").eq(i).append("<button type='button' class='btn_sticker'><span class='blind'>선택</span></button>");
+                        }
                     }
 
-                    $(".btn_sticker").eq(randomNum).addClass('omg');
+                    _$(".btn_sticker").eq(randomNum).addClass('omg');
                 }
             });
 
-            $(document).on("click",".btn_sticker", function(){
-                $(this).addClass("on");
-                if($(this).hasClass("omg")){
+            _$(document).on("click",".btn_sticker", function(){
+                _$(this).addClass("on");
+                if(_$(this).hasClass("omg")){
                     game.hide();
-                    $(".outro").css("display","flex");
+                    _$(".outro").css("display","flex");
                     resultVibrate();
                 };
             });
 
-            $(".btn_reset").click(function(){
+            _$(".btn_reset").click(function(){
                 outro.hide();
                 intro.css("display","flex");
-                $(".panel-bx").empty();
+                _$(".panel-bx").empty();
             });
         });
     </script>
