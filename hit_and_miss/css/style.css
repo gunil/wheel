@@ -197,8 +197,8 @@ table {
 .hit_and_miss .game .panel {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 5px;
     flex: 1;
     margin-bottom: 20px;
     padding: 6px 10px 15px;
@@ -218,7 +218,7 @@ table {
 
 .hit_and_miss .game .btn_sticker {
     position: relative;
-    height: 100%;
+    height: 70%;
     padding: 0;
     text-align: center;
     border: 0 none;
@@ -228,15 +228,6 @@ table {
     color: #000;
     transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     z-index: 1;
-}
-
-.hit_and_miss .game .btn_sticker .test {
-    text-indent: 0;
-    background-color: yellowgreen;
-    background-image: linear-gradient(135deg, #fff 50%, transparent 50%), linear-gradient(225deg, #fff 50%, transparent 50%), linear-gradient(45deg, #fff 50%, transparent 50%), linear-gradient(-45deg, #fff 50%, transparent 50%);
-    background-position: top left, top left, bottom left, bottom left;
-    background-size: 12px 12px;
-    background-repeat: repeat-x;
 }
 
 .hit_and_miss .game .btn_sticker.on {
