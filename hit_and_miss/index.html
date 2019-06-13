@@ -6,7 +6,6 @@
     <title>복불복</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
     <div class="hit_and_miss">
@@ -30,6 +29,7 @@
             <div class="title-bx">
                 <p class="title">될놈될<br>안될안</p>
             </div>
+            <div class="panel-bx"></div>
         </div>
 
         <div class="outro">
@@ -42,17 +42,23 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script>
         $(function(){
+
+            function resultVibrate(){
+                navigator.vibrate(1000);
+            }
+
             var intro = $(".intro"),
                 game  = $(".game"),
                 outro = $(".outro");
 
             $(".btn_start").click(function(){
-                var playerNum = $("#userNumber").val();
-                var randomNum = Math.floor(Math.random() * (playerNum * 5));
+                var playerNum = $("#userNumber").val(),
+                    randomNum = Math.floor(Math.random() * (playerNum * 5));
 
-                console.log(randomNum);
+                //console.log(randomNum);
 
                 if(playerNum == 0){
                     alert("Player 수를 지정하세요.");
@@ -61,7 +67,7 @@
                     game.css("display","flex");
 
                     for(i = 0; i < playerNum; i++){
-                        game.append("<div class='panel'><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button></div>");
+                        $(".panel-bx").append("<div class='panel'><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button></div>");
                     }
 
                     $(".btn_sticker").eq(randomNum).addClass('omg');
@@ -73,13 +79,14 @@
                 if($(this).hasClass("omg")){
                     game.hide();
                     $(".outro").css("display","flex");
+                    resultVibrate();
                 };
             });
 
             $(".btn_reset").click(function(){
                 outro.hide();
                 intro.css("display","flex");
-                game.empty();
+                $(".panel-bx").empty();
             });
         });
     </script>
