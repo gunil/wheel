@@ -189,7 +189,11 @@ table {
     font-size: 40px;
     color: #333;
 }
-
+.hit_and_miss .game .panel-bx {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
 .hit_and_miss .game .panel {
     position: relative;
     display: grid;
