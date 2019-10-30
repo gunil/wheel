@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <title>복불복</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hit_and_miss">
+        <div class="intro">
+            <h1 class="title">복불복</h1>
+            <strong class="sub_title">나만 아니면 돼~~~~~</strong>
+            <div class="user-settings">
+                <label for="userNumber" class="text">Player</label>
+                <select id="userNumber">
+                    <option value="2">2</option>
+                    <option value="3" selected="selected">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+            <button type="button" class="btn_start"><span>시작</span></button>
+        </div>
+
+        <div class="game">
+            <div class="title-bx">
+                <p class="title">될놈될<br>안될안</p>
+            </div>
+            <div class="panel-bx"></div>
+        </div>
+
+        <div class="outro">
+            <div class="pyro">
+                <div class="before"></div>
+                <div class="after"></div>
+            </div>
+            <p class="text">ㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊ</p>
+            <button type="button" class="btn_reset"><span>처음으로</span></button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+
+            function resultVibrate(){
+                navigator.vibrate(1000);
+            }
+
+            var intro = $(".intro"),
+                game  = $(".game"),
+                outro = $(".outro");
+
+            $(".btn_start").click(function(){
+                var playerNum = $("#userNumber").val(),
+                    randomNum = Math.floor(Math.random() * (playerNum * 5));
+
+                //console.log(randomNum);
+
+                if(playerNum == 0){
+                    alert("Player 수를 지정하세요.");
+                }else {
+                    intro.hide();
+                    game.css("display","flex");
+
+                    for(i = 0; i < playerNum; i++){
+                        $(".panel-bx").append("<div class='panel'><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button><button type='button' class='btn_sticker'><span class='blind'>선택</span></button></div>");
+                    }
+
+                    $(".btn_sticker").eq(randomNum).addClass('omg');
+                }
+            });
+
+            $(document).on("click",".btn_sticker", function(){
+                $(this).addClass("on");
+                if($(this).hasClass("omg")){
+                    game.hide();
+                    $(".outro").css("display","flex");
+                    resultVibrate();
+                };
+            });
+
+            $(".btn_reset").click(function(){
+                outro.hide();
+                intro.css("display","flex");
+                $(".panel-bx").empty();
+            });
+        });
+    </script>
+</body>
+</html>
