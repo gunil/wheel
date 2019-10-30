@@ -1,4 +1,4 @@
-var results = ['KGI','KSS','KDH','ISM'];
+var results = ['KGI','KSS','KDH','RSJ','HSE'];
 var fixIndex = 0;
 var randRoll = 0;
 
@@ -50,7 +50,10 @@ var randRoll = 0;
             } else {
                 // re-enable the button
                 button.prop("disabled", false);
-                $('body').addClass('end');
+
+                setTimeout(function(){
+                    $("body").addClass("end");
+                }, 500);
             }
         }
 
