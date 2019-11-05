@@ -41,29 +41,14 @@ $(function(){
         return d
     }
 
-
-    //아이템 넘버링
-    var allItem = $(".card_list li").length;
-    for(i = 0; i < allItem; i++) {
-        var num = i + 1;
-        $(".card_list li").eq(i).children(".inbx").children(".item").append( 
-            "<span class='name'>" + num + "</span>"
-        );
-    }
-
-    //멤버 배열 만들기
-    var memberList = ['김건일', '김성섭', '김동혁', '허성은', '류수진'];
-    var memberCount = memberList.length;
-    
-    //판때기 후보군 색출
-    $(".btn_shake").click(function() {
+    function arrayVerify() {
         $(".card_list li").removeClass("is_looser");    //class reset
         var count = $(".card_list li").length;
         for(i = 0; i < count; i++) {
             // var mixMember = shuffle(memberList)[0];   //배열 섞기
             var mixMember = memberList[makeRandom(0, memberCount)]; //배열을 랜덤으로 뽑기
 
-            console.log(mixMember);
+            //console.log(mixMember);
             
             //이미지 매핑
             var bg = '';
@@ -88,11 +73,32 @@ $(function(){
             bg = 'url(' + bg + ')';
             //console.log(i + ' : ' + mixMember + ' : ' + bg);    //확인용 로그
             
-            //$(".card_list li").eq(i).children(".inbx").children(".item").text(mixMember);             //멤버 이름으로 나오게 하기
-            $(".card_list li").eq(i).children(".inbx").children(".item").css('background-image', bg);   //멤버 사진으로 나오게 하기
+            $(".card_list li").eq(i).children(".inbx").children(".item").text(mixMember);             //멤버 이름으로 나오게 하기
+            // $(".card_list li").eq(i).children(".inbx").children(".item").css('background-image', bg);   //멤버 사진으로 나오게 하기
         }
+        return d
+    }
+
+
+    //아이템 넘버링
+    var allItem = $(".card_list li").length;
+    for(i = 0; i < allItem; i++) {
+        var num = i + 1;
+        $(".card_list li").eq(i).children(".inbx").children(".item").append( 
+            "<span class='name'>" + num + "</span>"
+        );
+    }
+
+    //멤버 배열 만들기
+    var memberList = ['김건일', '김성섭', '김동혁', '허성은', '류수진'];
+    var memberCount = memberList.length;
+    
+    //판때기 후보군 색출
+    $(".btn_shake").click(function() {
+        
     })
 
+    //게임시작!
     $(".btn_start").click(function() {
         var count = 400;
         var intarval = 20;
